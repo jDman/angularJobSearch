@@ -1,0 +1,8 @@
+<li ng-repeat="job in jobsList">
+  <h3>{{job.jobTitle}}</h3>
+  <p>Date published: {{job.date}}</p>
+  <p>Salary / daily rate: {{job.minimumSalary | currency:"£":0 }} - {{job.maximumSalary | currency:"£":0}}</p>
+  <p>Expires: {{job.expirationDate}}</p>
+  <p>Applications: {{job.applications}}</p>
+  <a href="{{job.jobUrl}}">Apply</a>
+</li>
