@@ -12,6 +12,11 @@ angular.module('jobSearch', ['ngAnimate', 'ngCookies', 'ngSanitize', 'ngResource
         url: '/about',
         templateUrl: 'app/templates/about.html',
         controller: 'AboutCtrl'
+      })
+      .state('jobDetails', {
+        url: '/jobDetails/:id',
+        templateUrl: 'app/templates/jobDetails.html',
+        controller: 'JobCtrl'
       });
 
     $urlRouterProvider.otherwise('/');

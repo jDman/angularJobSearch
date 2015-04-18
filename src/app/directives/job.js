@@ -5,9 +5,8 @@ angular.module('jobSearch')
 
     return {
       replace: true,
-      templateUrl: 'app/templates/job.html',
+      templateUrl: 'app/templates/jobs.html',
       link: function (scope, element, attrs) {
-        console.log(scope);
       }
 
     }

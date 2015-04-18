@@ -4,10 +4,9 @@ angular.module('jobSearch')
   .controller('MainCtrl', ['$scope', 'jobs', function ($scope, jobs) {
 
     var jobsearch = jobs.get.query();
-    $scope.jobsList = null;
+    $scope.jobsList = [];
 
     jobsearch.$promise.then(function (data) {
       $scope.jobsList = data.results;
     });
-
   }]);
