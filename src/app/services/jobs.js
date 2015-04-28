@@ -13,9 +13,10 @@ angular.module('jobSearch')
          return jobList;
      }
 
-     var getAll = function (searchParams) {
+     var getAll = function (keyword, location) {
 
-         var params = searchParams;
+         var key = keyword || '',
+             loc = location || '';
 
          return $resource(
                 'http://www.reed.co.uk/api/1.0/search?keywords=:keywords',
@@ -25,7 +26,9 @@ angular.module('jobSearch')
                 {
                   query: {
                     method:'JSONP',
-                    params:{keywords:params},
+                    params:{
+                      keywords:key
+                    },
                     isArray:false,
                     headers:{
                            'username': '7119a7ab-5020-49bd-8de6-cf4ae8e61508',

@@ -7,10 +7,16 @@ angular.module('jobSearch')
       replace: true,
       templateUrl: 'app/templates/search.html',
       link: function (scope, element, attrs) {
-        var input = $('#searchJobs');
+        var input = $('#searchJobs'),
+            selectedFilter = $('#searchFilter'),
+            filterBtn = $('#filter');
 
         input.on('keypress', function(evt){
           scope.jobSearch(this.value);
+        });
+
+        filterBtn.on('click', function(){
+          scope.jobFilter(selectedFilter.val(), scope.jobsList);
         });
 
       }

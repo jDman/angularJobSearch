@@ -18,6 +18,27 @@ angular.module('jobSearch')
 
     };
 
+    $scope.jobFilter = function (param, jobs) {
+
+        if(param === 'location') {
+          jobs.sort(function(a, b){
+
+            if(a.locationName > b.locationName){
+              return 1;
+            }
+
+            if(a.locationName < b.locationName){
+              return 0;
+            }
+
+            return 0;
+
+          });
+          console.log(jobs);
+        }
+    }
+
+
     $scope.jobDetails = function(job) {
       jobs.addJob(job);
     }
