@@ -1,13 +1,25 @@
 'use strict';
 
 angular.module('jobSearch')
-  .controller('MainCtrl', ['$scope', 'searchJobs', function ($scope, searchJobs) {
+  .controller('MainCtrl', ['$rootScope', '$scope', 'searchJobs', 'jobs', function ($rootScope, $scope, searchJobs, jobs) {
 
-    var jobsearch = searchJobs.search;
+    var jobsearch = undefined;
 
     $scope.jobsList = [];
+    $scope.jobSearch = function (input) {
+       jobsearch = searchJobs.search(input);
 
-    jobsearch.query().$promise.then(function (data) {
-      $scope.jobsList = data.results;
-    });
+       jobsearch.query().$promise.then(function (data) {
+
+         $scope.jobsList = data.results;
+
+       });
+
+
+    };
+
+    $scope.jobDetails = function(job) {
+      jobs.addJob(job);
+    }
+
   }]);
