@@ -48,11 +48,11 @@ angular.module('jobSearch')
                 firstCompare = new Date(a[2], (a[1] - 1), a[0]),
                 secondCompare = new Date(b[2], (b[1] - 1), b[0]);
 
-            if(Date.parse(firstCompare) > Date.parse(secondCompare)){
+            if(Date.parse(secondCompare) > Date.parse( firstCompare)){
               return 1;
             }
 
-            if(Date.parse(firstCompare) < Date.parse(secondCompare)){
+            if(Date.parse(secondCompare) < Date.parse(firstCompare)){
               return -1;
             }
 
