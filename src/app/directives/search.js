@@ -12,9 +12,7 @@ angular.module('jobSearch')
             selectedFilter = $('#searchFilter');
 
         searchBtn.on('click', function(evt){
-          console.log(input.val());
-          setTimeout(scope.jobSearch(input.val()), 250);
-
+          scope.jobSearch(input.val());
         });
 
         selectedFilter.on('change', function(){

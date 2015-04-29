@@ -20,7 +20,9 @@ angular.module('jobSearch')
 
     $scope.jobFilter = function (param, jobs) {
 
-      console.log(param);
+        if(!param){
+          return;
+        }
 
         if(param === 'location') {
           jobs.sort(function(a, b){
@@ -36,11 +38,33 @@ angular.module('jobSearch')
             return 0;
 
           });
-
-          console.log(jobs);
-          $scope.jobsList = jobs;
-          $scope.$apply();
         }
+
+        if(param === 'date'){
+          jobs.sort(function(a, b){
+
+            var a = a.date.split('/'),
+                b = b.date.split('/'),
+                firstCompare = new Date(a[2], (a[1] - 1), a[0]),
+                secondCompare = new Date(b[2], (b[1] - 1), b[0]);
+
+            if(Date.parse(firstCompare) > Date.parse(secondCompare)){
+              return 1;
+            }
+
+            if(Date.parse(firstCompare) < Date.parse(secondCompare)){
+              return -1;
+            }
+
+            return 0;
+
+          });
+
+
+        }
+
+        $scope.jobsList = jobs;
+        $scope.$apply();
     }
 
 
