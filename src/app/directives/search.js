@@ -8,17 +8,18 @@ angular.module('jobSearch')
       templateUrl: 'app/templates/search.html',
       link: function (scope, element, attrs) {
         var input = $('#searchJobs'),
-            selectedFilter = $('#searchFilter'),
-            filterBtn = $('#filter');
+            searchBtn = $('#searchBtn'),
+            selectedFilter = $('#searchFilter');
 
-        input.on('keypress', function(evt){
-          scope.jobSearch(this.value);
+        searchBtn.on('click', function(evt){
+          console.log(input.val());
+          setTimeout(scope.jobSearch(input.val()), 250);
+
         });
 
-        filterBtn.on('click', function(){
+        selectedFilter.on('change', function(){
           scope.jobFilter(selectedFilter.val(), scope.jobsList);
         });
-
       }
 
     }

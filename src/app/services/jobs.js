@@ -13,10 +13,11 @@ angular.module('jobSearch')
          return jobList;
      }
 
-     var getAll = function (keyword, location) {
+     var getAll = function (keyword, location, date) {
 
          var key = keyword || '',
-             loc = location || '';
+             location = location || '',
+             date = date || '';
 
          return $resource(
                 'http://www.reed.co.uk/api/1.0/search?keywords=:keywords',

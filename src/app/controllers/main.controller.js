@@ -6,6 +6,7 @@ angular.module('jobSearch')
     var jobsearch = undefined;
 
     $scope.jobsList = [];
+
     $scope.jobSearch = function (input) {
        jobsearch = searchJobs.search(input);
 
@@ -15,10 +16,11 @@ angular.module('jobSearch')
 
        });
 
-
     };
 
     $scope.jobFilter = function (param, jobs) {
+
+      console.log(param);
 
         if(param === 'location') {
           jobs.sort(function(a, b){
@@ -28,13 +30,16 @@ angular.module('jobSearch')
             }
 
             if(a.locationName < b.locationName){
-              return 0;
+              return -1;
             }
 
             return 0;
 
           });
+
           console.log(jobs);
+          $scope.jobsList = jobs;
+          $scope.$apply();
         }
     }
 
